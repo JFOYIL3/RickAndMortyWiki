@@ -25,8 +25,8 @@ const FilterBTN = ({name, index, items, task, setPageNumber}) => {
                     name={name} 
                     id={`${name}-${index}`}/>
                 <label 
-                    class="btn btn-outline-primary" 
-                    for={`${name}-${index}`}>{items}
+                    className="btn btn-outline-primary" 
+                    htmlFor={`${name}-${index}`}>{items}
                 </label>
             </div>
             

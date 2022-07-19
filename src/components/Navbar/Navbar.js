@@ -1,13 +1,15 @@
 import React from 'react'
+import {NavLink, Link} from 'react-router-dom'
+
 
 const Navbar = () => {
 
     return (
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <h1 className="fs-3 ubuntu navbar-brand">Rick and Morty <span className="text-primary">Wiki</span></h1>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <div className="container">
+                <Link to='/' className="fs-3 ubuntu navbar-brand">Rick and Morty <span className="text-primary">Wiki</span></Link>
                 <button 
-                    class="navbar-toggler" 
+                    className="navbar-toggler" 
                     type="button" 
                     data-bs-toggle="collapse" 
                     data-bs-target="#navbarNav" 
@@ -15,23 +17,26 @@ const Navbar = () => {
                     aria-expanded="false" 
                     aria-label="Toggle navigation"
                 >
-                    <span class="navbar-toggler-icon"></span>
+                    <style jsx="true">
+                        {`
+                        button[aria-expanded="false"] > .close{
+                            display : none;
+                        }
+
+                        button[aria-expanded="true"] > .open{
+                            display : none;
+                        }
+                        `}
+                    </style>
+                    <i className='fas fa-bars open'></i>
+                    <i className='fas fa-times close'></i>
                 </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
+                <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <div className='navbar-nav fs-5'>
+                        <NavLink to='/' className="nav-link">Characters</NavLink>
+                        <NavLink to='/episodes' className="nav-link">Episodes</NavLink>
+                        <NavLink to='/location' className="nav-link">Location</NavLink>
+                    </div> 
                 </div>
             </div>
         </nav>
